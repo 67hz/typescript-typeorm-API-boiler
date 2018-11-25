@@ -1,0 +1,11 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3307,
+  "username": "gc",
+  "password": "pass",
+  "database": "games",
+  "entities": ["src/entities/*.ts"],
+  "synchronize": true,
+  "logging": true
+}

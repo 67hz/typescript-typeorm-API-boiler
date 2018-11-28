@@ -17,9 +17,9 @@
 * swagger (tbd)
 
 ## Architectural Hmms?...
-* usage of aync container module (Inversify) to create connection to db vs repositories handling responsibility.
+* usage of aync container module (Inversify) to create connection to db vs repositories handle that responsibility.
   * initial pre-load connection vs ad hoc connections
-  * going with async pre-load - may revisit this in more complex settings
+  * going with async pre-load
 
 ## FE stack
 * Vue.js for client
@@ -35,9 +35,9 @@
 
 
 
-# API Design
+## API Design
 
-## Game - no bulk updates so far
+# Game - no bulk updates so far
 
 GET /games -> returns all games
 POST /games -> add game (auto-gen PK_id UUID)
@@ -47,7 +47,7 @@ PUT /games/:id -> update specific game (e.g. rain delays would affect start time
 DELETE /games/:id -> delete specific game
 
 
-## Scoring Event
+# Scoring Event
 
 GET /games/:id/scoring -> return all scoring events for game id
   * optional games/:id=all/scoring -> return all events for all games

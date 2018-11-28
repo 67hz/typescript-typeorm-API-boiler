@@ -2,11 +2,12 @@
  * Alternative approach to bootstrapping using Express Inversify Server scrap
  * app/server if this goes well
  */
+import "reflect-metadata";
+import { Container } from "inversify";
+import { InversifyExpressServer } 
+ from "inversify-express-utils";
+import { bindings } from "./inversify.config";
 
- import * as bodyParser from 'body-parser';
- import { Container } from "inversify";
- import { interfaces, InversifyExpressServer, TYPE } 
-   from "inversify-express-utils";
 
 
 

@@ -2,9 +2,11 @@
  * Bring all the things in here for bindings: types, services, repositories,
  * controllers
  */
-import { Container } from "inversify";
+import { AsyncContainerModule} from "inversify";
+import { Repository, createConnection } from "typeorm";
+import { getRepository } from "./repositories/GameRepository";
+import { Game } from "./entities/Game";
 import { TYPE } from "./constants/types";
-import { GameRepository } from "./repositories/GameRepository"
 import { GameService } from "./services/GameService"
 import { GameController } from "./controllers/GameController";
 
@@ -12,27 +14,16 @@ import { GameController } from "./controllers/GameController";
 
 
 
+export const bindings = new AsyncContainerModule(async (bind) => {
 
+  // loads all entities from `src/entities/*.ts` //
+  const conn = await createConnection();
+  await require("./controllers/GameController");
+  
 
-const container = new Container();
+  // bind implementations to interfaces
+  bind<Repository<Game>>(TYPE.GameRepository).toDynamicValue(() => {
+      return getRepository();
+  }).inRequestScope();
 
-container.bind<RegistrableController>(TYPES.Controller).to(AddressController);
-container.bind<AddressService>(TYPES.AddressService).to(AddressServiceImpl);
-container.bind<AddressRepository>(TYPES.AddressRepository).to(AddressRepositoryImplMongo);
-container.bind<AddressRepository>(TYPES.AddressRepository2).to(AddressRepositoryImplDb);
-
-
-
-// export const bindings = new AsyncContainerModule(async (bind) => {
-//
-//     // await some db connection 
-//     //
-//     await require("./controllers/GameController");
-//
-//     bind<Repository<GameRepository>>(TYPE.GameRepository).toDynamicValue(() => {
-//         return getRepository();
-//     }).inRequestScope();
-//
-// });
-
-export default container;
+});

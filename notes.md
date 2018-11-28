@@ -1,7 +1,7 @@
-# containerization
+## containerization
 * everything in docker containers
 
-# Stack
+## Stack
 * TypeScript on backend
 * inversifyjs - Dependency Injection Framework
   * depenedency inversion principle - depend upon abstractions, not concretions
@@ -16,15 +16,15 @@
 * helmet - basic security
 * swagger (tbd)
 
-# Architectural Hmms?...
-* usage of aync container module (Inversify) to create connection to db vs repositories handle that responsibility.
+## Architectural Hmms?...
+* usage of aync container module (Inversify) to create connection to db vs repositories handling responsibility.
   * initial pre-load connection vs ad hoc connections
-  * going with async pre-load
+  * going with async pre-load - may revisit this in more complex settings
 
-# FE stack
+## FE stack
 * Vue.js for client
 
-## testing
+## Testing
 * mocha / chai for testing
 
 ## General
@@ -35,9 +35,9 @@
 
 
 
-## API Design
+# API Design
 
-# Game - no bulk updates so far
+## Game - no bulk updates so far
 
 GET /games -> returns all games
 POST /games -> add game (auto-gen PK_id UUID)
@@ -47,7 +47,7 @@ PUT /games/:id -> update specific game (e.g. rain delays would affect start time
 DELETE /games/:id -> delete specific game
 
 
-# Scoring Event
+## Scoring Event
 
 GET /games/:id/scoring -> return all scoring events for game id
   * optional games/:id=all/scoring -> return all events for all games

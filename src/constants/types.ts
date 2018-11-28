@@ -1,4 +1,4 @@
-const TYPE = {
+const TYPES = {
   Game: Symbol.for("Game"),
   ScoringEvent: Symbol.for("ScoringEvent"),
   ScorekeepingData: Symbol.for("ScorekeepingData"),
@@ -9,4 +9,4 @@ const TYPE = {
   GameController: Symbol("GameController")
 };
 
-export { TYPE };
+export { TYPES };

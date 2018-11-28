@@ -6,7 +6,7 @@ import { AsyncContainerModule} from "inversify";
 import { Repository, createConnection } from "typeorm";
 import { getRepository } from "./repositories/GameRepository";
 import { Game } from "./entities/Game";
-import { TYPE } from "./constants/types";
+import { TYPES } from "./constants/types";
 import { GameService } from "./services/GameService"
 import { GameController } from "./controllers/GameController";
 
@@ -21,8 +21,10 @@ export const bindings = new AsyncContainerModule(async (bind) => {
   await require("./controllers/GameController");
   
 
-  // bind implementations to interfaces
-  bind<Repository<Game>>(TYPE.GameRepository).toDynamicValue(() => {
+  bind<GameController>(TYPES.GameController).to(GameController);
+  bind<GameService>(TYPES.GameService).to(GameService);
+
+  bind<Repository<Game>>(TYPES.GameRepository).toDynamicValue(() => {
       return getRepository();
   }).inRequestScope();
 

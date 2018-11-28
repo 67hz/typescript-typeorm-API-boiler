@@ -1,7 +1,7 @@
 ## containerization
 * everything in docker containers
 
-## Stack
+# Stack
 * TypeScript on backend
 * inversifyjs - Dependency Injection Framework
   * depenedency inversion principle - depend upon abstractions, not concretions
@@ -33,11 +33,11 @@
 ## documentation
 * Swagger
 
+===
 
+# API Design
 
-## API Design
-
-# Game - no bulk updates so far
+## Game - no bulk updates so far
 
 GET /games -> returns all games
 POST /games -> add game (auto-gen PK_id UUID)
@@ -47,17 +47,18 @@ PUT /games/:id -> update specific game (e.g. rain delays would affect start time
 DELETE /games/:id -> delete specific game
 
 
-# Scoring Event
+## Scoring Event
 
 GET /games/:id/scoring -> return all scoring events for game id
   * optional games/:id=all/scoring -> return all events for all games
+  * optional games/:id=all?offset={offset_count}&count={num_results_returned}
 
 GET /games/:id/scoring/:id -> return specific scoring event 
 POST /games/:id/scoring -> add scoring event (FK_game_id)
 PUT /games/:id/scoring/:id -> update scoring event (e.g. post call under review)
 
 
-# Versioning
+## Versioning
 
 * URL vs header ?
 

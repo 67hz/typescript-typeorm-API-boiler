@@ -1,12 +1,18 @@
 import "reflect-metadata";
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, Generated } from "typeorm";
 
 @Entity()
 export class Game {
 
   @PrimaryGeneratedColumn()
-  id: number; // assumed to be UUID
+  @Generated("uuid")
+  id: string; // assumed to be UUID
 
+  /**
+   * should use @UpdateDateColumn to auto set 
+   * if above, may need to add endpoint to adjust all date fields
+   * e.g. game/:id/start game/:id/stop game/:id/arrive
+   */
   @Column()
   start: number;
 

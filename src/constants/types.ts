@@ -4,16 +4,9 @@ const TYPE = {
   ScorekeepingData: Symbol.for("ScorekeepingData"),
 
 
-
-
-  // @TODO add controllers and services here
-
-  GameRepository: Symbol("GameRepository")
-
-    // AddressRepository: Symbol('AddressRepository'),
-    // AddressRepository2: Symbol('AddressRepository2'),
-    // AddressService: Symbol('AddressService'),
-    // Controller: Symbol('Controller')
+  GameRepository: Symbol("GameRepository"),
+  GameService: Symbol("GameService"),
+  GameController: Symbol("GameController")
 };
 
 export { TYPE };

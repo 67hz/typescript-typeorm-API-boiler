@@ -1,0 +1,5 @@
+#aaron@avenue6creative.com
+  Host bitbucket.org
+  User git
+  IdentityFile ~/.ssh/ave6git_rsa
+  IdentitiesOnly yes

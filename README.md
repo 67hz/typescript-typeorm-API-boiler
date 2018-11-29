@@ -18,8 +18,8 @@ Certain design decisions have been made with extensibility and scale in mind for
 * helmet - basic security
 
 # @TODOs
+* finish building out routes and associated logic
 * add redis cache - integrated with TypeORM
-* finish building out routes
 * swagger docs
 * Testing - mocha / chai
 
@@ -30,6 +30,7 @@ Certain design decisions have been made with extensibility and scale in mind for
 * using a services layer to manage TypeORM custom repositories
   * could forego services and have controllers manage repositories directly. In a larger app, services will help decouple business logic from db interactions and reduce controller bloat.
 
+![API Dependency Graph](./diagrams/API_Design.gif)
 
 # API Design
 
@@ -39,6 +40,7 @@ Certain design decisions have been made with extensibility and scale in mind for
 | /games/:game_id | returns specific game (200) | N/A (405) | update specific game (e.g. rain delay) (200) | delete specific game (200) | 
 | /games/:game_id/scoring | returns all scoring events for specific game (200) | add scoring event to specific game with FK_game_id (201) | update scoring event for specific game (e.g. post call review) (200) | delete scoring event for specific game (200) |
 
+![DB High-level Design](./Diagrams/DB_Design.gif)
 
 
 ## Versioning

@@ -1,24 +1,21 @@
-## containerization
-* everything in docker containers
-
 # Stack
 * TypeScript on backend
-* inversifyjs - Dependency Injection Framework
+* inversifyjs - DI Framework
   * depenedency inversion principle - depend upon abstractions, not concretions
   * inversify-express-server
   * inversify-express-utils
   * inversify-binding-decorators - decided to leave out in favor of explicit verbosity
     * more boilerplate (feeling Java-ish) but gives a better sense of how things are wired up.
 * typeorm - with routing-controller-extensions (decorators)
-  * [routing-controllers](https://github.com/typeorm/typeorm-routing-controllers-extensions)
-  * [custom repositories](http://typeorm.io/#/custom-repository)
+  * [routing-controllers](https://github.com/typeorm/typeorm-routing-controllers-extensions) - favoring inversify-express-utils annotations instead
+  * [custom repositories](http://typeorm.io/#/custom-repository) - plays nicer with services layer
 * integrate with MySQL
 * helmet - basic security
 * swagger (tbd)
 
 ## Architectural Hmms?...
-* usage of aync container module (Inversify) to create connection to db vs repositories handle that responsibility.
-  * initial pre-load connection vs ad hoc connections
+* usage of aync container module (Inversify) to create connection to db vs repositories handling responsibility.
+  * initial pre-load connection vs ad hoc connections per repositories
   * going with async pre-load
 
 ## FE stack
@@ -27,40 +24,23 @@
 ## Testing
 * mocha / chai for testing
 
-## General
-* add version of API in header
-
 ## documentation
 * Swagger
 
-===
 
 # API Design
 
-## Game - no bulk updates so far
+| Resource | GET (Read) | POST (Create) | PUT (Update) | DELETE (Delete) |
+| --- | --- | --- | --- | --- |
+| /games | returns all games | create new game with auto-generated UUID PK_id | N/A | N/A | 
+| /games/:game_id | returns specific game | N/A (405) | update specific game (e.g. rain delay)| delete specific game | 
+| /games/:game_id/scoring | returns all scoring events for specific game | add scoring event to specific game with FK_game_id | update scoring event for specific game (e.g. post call review) | delete scoring event for specific game |
 
-GET /games -> returns all games
-POST /games -> add game (auto-gen PK_id UUID)
-
-GET /games/:id -> return specific game
-PUT /games/:id -> update specific game (e.g. rain delays would affect start time)
-DELETE /games/:id -> delete specific game
-
-
-## Scoring Event
-
-GET /games/:id/scoring -> return all scoring events for game id
-  * optional games/:id=all/scoring -> return all events for all games
-  * optional games/:id=all?offset={offset_count}&count={num_results_returned}
-
-GET /games/:id/scoring/:id -> return specific scoring event 
-POST /games/:id/scoring -> add scoring event (FK_game_id)
-PUT /games/:id/scoring/:id -> update scoring event (e.g. post call under review)
 
 
 ## Versioning
 
-* URL vs header ?
+* URL vs header? going with URL versioning -> /api/v1/
 
 
 

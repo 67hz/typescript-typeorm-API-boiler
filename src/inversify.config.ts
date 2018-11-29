@@ -24,13 +24,14 @@ export const bindings = new AsyncContainerModule(async (bind) => {
 
   // loads all entities from `src/entities/*.ts` //
   const conn = await createConnection();
-  // await require("./controllers/GameController");
-  
 
   bind<GameController>(TYPES.GameController).to(GameController);
   bind<GameService>(TYPES.GameService).to(GameService);
+
+  // this will throw errors, due to the async nature, DB dependency of repo
   // bind<GameRepository>(TYPES.GameRepository).to(GameRepository);
 
+  // do this instead 
   bind<Repository<Game>>(TYPES.GameRepository).toDynamicValue(() => {
     return getGameRepository();
   }).inRequestScope();

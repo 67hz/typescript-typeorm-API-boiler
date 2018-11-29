@@ -28,7 +28,7 @@ Certain design decisions have been made with extensibility and scale in mind for
   * [custom repositories](http://typeorm.io/#/custom-repository) - useful if service layers are employed.
 * helmet - basic security
 
-# @TODOs
+# TODOs
 * finish building out routes and associated logic
 * complete docker containerization
 * add redis cache - integrated with TypeORM

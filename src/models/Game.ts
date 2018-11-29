@@ -1,11 +1,11 @@
-export interface Game {
+export interface GameModel {
   id: string; // assumed to be UUID
   start: Date;
   end: Date;
   arrive: Date;
 }
 
-export interface ScoringEvent {
+export interface ScoringEventModel {
   id: string; // assumed to be UUID
   game_id: string; // assumed to be UUID
   timestamp: Date;

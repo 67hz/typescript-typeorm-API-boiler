@@ -1,7 +1,7 @@
 {
-  "name": "TypeScript",
+  "name": "GameChanger Backend Exercise",
   "version": "1.0.0",
-  "description": "",
+  "description": "Boilerplate for TypeScript API",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aaron Hinojosa",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",

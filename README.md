@@ -3,6 +3,17 @@
 This excercise has evolved into the design of boilerplate for a dream TypeScript API stack.
 Certain design decisions have been made with extensibility and scale in mind for larger applications.
 
+# Running
+
+* ** run notes and docker instructions coming soon **
+
+* a note about MySQL: it may be necessary to force connection through TCP protocol
+
+      # add this to MySQL my.cnf
+      # force tcp connection 
+      [client]
+      protocol=tcp
+
 # Stack
 
 * TypeScript
@@ -19,6 +30,7 @@ Certain design decisions have been made with extensibility and scale in mind for
 
 # @TODOs
 * finish building out routes and associated logic
+* complete docker containerization
 * add redis cache - integrated with TypeORM
 * swagger docs
 * Testing - mocha / chai

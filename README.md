@@ -37,6 +37,7 @@ A note about MySQL: it may be necessary to force connection through TCP protocol
 * usage of aync container module (Inversify) to create connection to db vs repositories handling responsibility.
   * IOW initial pre-load connection vs ad hoc connections per repositories
   * going with async pre-load
+
 * using a services layer to manage TypeORM custom repositories
   * could forego services and have controllers manage repositories directly. In a larger app, services will help decouple business logic from db interactions and reduce controller bloat.
 

@@ -61,19 +61,19 @@ A note about MySQL: it may be necessary to force connection through TCP protocol
 
 ## Footnotes
 
-* ** autoBindInjectable: true
+** autoBindInjectable: true
 
-      let container = new Container({ autoBindInjectable: true });
-      container.isBound(GameController); // returns false
-      container.get(GameController);
-      container.isBound(GameController); // returns true
+    let container = new Container({ autoBindInjectable: true });
+    container.isBound(GameController); // returns false
+    container.get(GameController);
+    container.isBound(GameController); // returns true
 
 
-      // false option is default and used in this application
-      let container = new Container({ autoBindInjectable: false });
-      container.isBound(GameController); // returns false
-      container.get(GameController); // throws error
-      container.bind<GameController>(Types.GameController).to(GameController); // manually bind
-      container.isBound(GameController); // returns true
-      container.get(GameController); // returns GameController
+    // false option is default and used in this application
+    let container = new Container({ autoBindInjectable: false });
+    container.isBound(GameController); // returns false
+    container.get(GameController); // throws error
+    container.bind<GameController>(Types.GameController).to(GameController); // manually bind
+    container.isBound(GameController); // returns true
+    container.get(GameController); // returns GameController
 

@@ -14,13 +14,18 @@ export class GameService {
   private _gameRepository: GameRepository;
 
   public test(str: string): string {
-    return this._gameRepository.bar(str);
+    return this._gameRepository.test(str);
   }
 
   public async findAll(): Promise<Array<Game>> {
+
     let results = this._gameRepository.findGame();
     return await results;
-    // return JSON.stringify(results);
+  }
+
+  public async findById(gameId: string): Promise<Array<Game>> {
+    let game = this._gameRepository.findById(gameId);
+    return await game;
   }
 
 

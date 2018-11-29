@@ -51,7 +51,7 @@ A note about MySQL: it may be necessary to force connection through TCP protocol
 | /games/:game_id | returns specific game (200) | N/A (405) | update specific game (e.g. rain delay) (200) | delete specific game (200) | 
 | /games/:game_id/scoring | returns all scoring events for specific game (200) | add scoring event to specific game with FK_game_id (201) | update scoring event for specific game (e.g. post call review) (200) | delete scoring event for specific game (200) |
 
-![DB High-level Design](./Diagrams/DB_Design.gif)
+![DB High-level Design](./diagrams/DB_Design.gif)
 
 
 ## Versioning

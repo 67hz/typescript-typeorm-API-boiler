@@ -7,10 +7,9 @@ Certain design decisions have been made with extensibility and scale in mind for
 
 * ** run notes and docker instructions coming soon **
 
-* a note about MySQL: it may be necessary to force connection through TCP protocol
+A note about MySQL: it may be necessary to force connection through TCP protocol
+  * add the following to the MySQL config's my.cnf
 
-      # add this to MySQL my.cnf
-      # force tcp connection 
       [client]
       protocol=tcp
 

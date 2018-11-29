@@ -35,7 +35,7 @@ Certain design decisions have been made with extensibility and scale in mind for
 * swagger docs
 * Testing - mocha / chai
 
-## Architectural Hmms?...
+## Architecture Design Desicisions
 * usage of aync container module (Inversify) to create connection to db vs repositories handling responsibility.
   * IOW initial pre-load connection vs ad hoc connections per repositories
   * going with async pre-load

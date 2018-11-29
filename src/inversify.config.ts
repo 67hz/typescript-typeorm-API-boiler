@@ -32,10 +32,7 @@ export const bindings = new AsyncContainerModule(async (bind) => {
   // bind<GameRepository>(TYPES.GameRepository).to(GameRepository);
 
   bind<Repository<Game>>(TYPES.GameRepository).toDynamicValue(() => {
-      // const conn = getConnection();
-      // return conn.getCustomRepository(Game);
     return getGameRepository();
-
   }).inRequestScope();
 
 });

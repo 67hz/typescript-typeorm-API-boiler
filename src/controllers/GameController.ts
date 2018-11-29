@@ -19,12 +19,12 @@ export class GameController implements interfaces.Controller {
   constructor(@inject(TYPES.GameService) private _gameService: GameService) {}
 
   @httpGet("/")
-  private index(req: express.Request, res: express.Response,
-    next: express.NextFunction): express.Response {
+  private async index(req: express.Request, res: express.Response,
+    next: express.NextFunction) {
     console.log(this._gameService.test("service test"));
 
-    // console.log(JSON.stringify(this._gameService.findAll()));
-    return res.status(200).json({message: "all games"});
+    const gamesFound = await this._gameService.findAll();
+    return res.status(200).json(gamesFound);
   }
 
   // @httpPost("/")

@@ -16,9 +16,10 @@ import { GameModel } from "../models/Game";
 @EntityRepository(Game)
 export class GameRepository extends Repository<Game>{
 
-  // public async findGame(): Promise<Array<GameModel>> {
-  //   return await this.find();
-  // }
+  public async findGame(): Promise<Array<Game>> {
+    const allGames = await this.find({ select: ["start", "end"] });
+    return allGames;
+  }
 
   // public async find(id: string): Promise<GameModel> {
   //     return await this.findOneById(id);
@@ -30,6 +31,10 @@ export class GameRepository extends Repository<Game>{
 
 
 } 
+
+
+
+// @TODO make this method on CustomRepository interface and extend
 export function getGameRepository() {
   const conn = getConnection();
   const gameRepository = conn.getCustomRepository(GameRepository);

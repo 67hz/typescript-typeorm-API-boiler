@@ -1,27 +1,38 @@
 import "reflect-metadata";
 import { injectable } from "inversify";
-import { EntityRepository, Repository } from "typeorm"
+import { 
+  EntityRepository,
+  Repository,
+  getConnection,
+  getCustomRepository
+} from "typeorm"
 import { Game } from "../entities/Game";
 import { GameModel } from "../models/Game";
 
 
 
 
-// @EntityRepository(Game)
-@injectable()
-export class GameRepository {
+// @injectable()
+@EntityRepository(Game)
+export class GameRepository extends Repository<Game>{
 
-  public async findAll(): Promise<Array<GameModel>> {
-    return await this.findAll();
-  }
+  // public async findGame(): Promise<Array<GameModel>> {
+  //   return await this.find();
+  // }
 
-  public foo(str: string): string {
+  // public async find(id: string): Promise<GameModel> {
+  //     return await this.findOneById(id);
+  // }
+
+  public bar(str: string): string {
     return "hello, world!" + " " + str;
   }
 
+
+} 
+export function getGameRepository() {
+  const conn = getConnection();
+  const gameRepository = conn.getCustomRepository(GameRepository);
+  return gameRepository;
 }
 
-// export function getRepository() {
-//   const conn = getConnection();
-//   return conn.getRepository(Game);
-// }

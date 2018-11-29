@@ -22,6 +22,8 @@ export class GameController implements interfaces.Controller {
   private index(req: express.Request, res: express.Response,
     next: express.NextFunction): express.Response {
     console.log(this._gameService.test("service test"));
+
+    // console.log(JSON.stringify(this._gameService.findAll()));
     return res.status(200).json({message: "all games"});
   }
 

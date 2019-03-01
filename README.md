@@ -1,5 +1,3 @@
-_Assignment's required routes are coming soon along with run notes._
-
 # Motivations
 
 This excercise has evolved into the design of boilerplate for a dream TypeScript API stack.
